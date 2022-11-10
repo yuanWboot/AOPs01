@@ -30,4 +30,8 @@ public class MethodAspect {
    public void doAfter(JoinPoint joinPoint){
        System.out.println("+++++++++++触发后置通知");
    }
+
+   public void doAfterThrowing(JoinPoint joinPoint,Throwable th){
+       System.out.println(">>>>>>>异常通知："+th.getMessage());
+   }
 }
