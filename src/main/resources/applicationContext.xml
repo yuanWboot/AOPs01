@@ -17,4 +17,18 @@
     <bean id="employeeService" class="com.zy.spring.aop.service.EmployeeService">
         <property name="employeeDao" ref="employeeDao"/>
     </bean>
+    <!--    AOP配置-->
+    <bean id="methodAspect" class="com.zy.spring.aop.aspect.MethodAspect">
+    </bean>
+    <aop:config>
+        <!--PointCut 切点，使用execution表达式描述切面作用范围-->
+        <!--execution(public * com.zy..*.*(..)) 说明切面作用在com.zy包下的所有类的所有方法上        -->
+        <aop:pointcut id="pointcut" expression="execution(public * com.zy..*.*(..))"/>
+        <!--定义切面类-->
+        <aop:aspect ref="methodAspect">
+            <!--before通知，代表在目标方法运行前先执行methodAspect.printExecutionTime()           -->
+            <aop:before method="printExecutionTime" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>
