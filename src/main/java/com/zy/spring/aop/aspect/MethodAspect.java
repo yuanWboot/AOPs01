@@ -18,6 +18,11 @@ public class MethodAspect {
         //获取目标方法名称
         String  methodName = joinPoint.getSignature().getName();
         System.out.println("=======>>>>>"+now+":"+className+"."+methodName);
+        //获取目标方法参数
+        Object[] args = joinPoint.getArgs();
+        for (Object arg : args) {
+            System.out.println("=======>参数："+arg);
+        }
     }
 
 }
