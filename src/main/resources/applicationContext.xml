@@ -29,6 +29,7 @@
             <!--before通知，代表在目标方法运行前先执行methodAspect.printExecutionTime()           -->
             <aop:before method="printExecutionTime" pointcut-ref="pointcut"/>
             <aop:before method="doAfter" pointcut-ref="pointcut"/>
+            <aop:after-returning method="doAfterReturning" returning="ret" pointcut-ref="pointcut"></aop:after-returning>
         </aop:aspect>
     </aop:config>
 

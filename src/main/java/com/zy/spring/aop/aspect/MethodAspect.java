@@ -24,6 +24,9 @@ public class MethodAspect {
             System.out.println("=======>参数："+arg);
         }
     }
+    public void doAfterReturning(JoinPoint joinPoint,Object ret){
+        System.out.println("。。。。。。返回后通知："+ret);
+    }
    public void doAfter(JoinPoint joinPoint){
        System.out.println("+++++++++++触发后置通知");
    }
